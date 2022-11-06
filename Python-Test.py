@@ -1,13 +1,28 @@
-import random
-# id generator
+person_list = []
 
+def person():
+    global person_list
+    first = input("Enter firstname: ")
+    last = input("Enter lastname: ")
+    age = int(input("Enter age: "))
+    person_object = first, last, age
+    person_list.append(person_object)
+    print(person_list)
+    
 
-def generateID(f, l):
-        gen = random.randint(000000, 999999)
-        rand_gen = f[0] + l[0] + "-" + str(gen)
-        print(rand_gen)
-
+while True:
+    try:
+        choice = input("Would you like to add a person? [Y|N]: ")
+        if (choice == "Y") or (choice == "y"):
+            person()
+            
+        elif (choice == "N") or (choice == "n"):
+            print("Goodbye!")
+            break
         
-firstname = input("Enter firstname: ")
-lastname = input("Enter lastname: ")
-generateID(firstname, lastname)
+        else:
+            print("Goodbye--")
+            break
+            
+    except ValueError:
+        print("Please try again")
